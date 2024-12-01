@@ -48,7 +48,7 @@ const LocationMap = ({ lat, lng, mapContainerStyle }: Props) => {
   return (
    <GoogleMap mapContainerStyle={mapContainerStyle || fullScreenStyle} center={currentPosition || { lat, lng }} zoom={16} options={{ fullscreenControl: false, mapTypeControl: false, streetViewControl: false }}>
     <MarkerF position={{ lat, lng }} />
-    {currentPosition && <MarkerF position={currentPosition} icon={{ url: "path/to/current-location-icon.png" }} />}
+    {currentPosition && <MarkerF position={currentPosition} icon={{ path: window.google.maps.SymbolPath.CIRCLE, scale: 8, fillColor: "blue", fillOpacity: 0.6, strokeWeight: 2, strokeColor: "white" }} />}
    </GoogleMap>
   );
  } else {
