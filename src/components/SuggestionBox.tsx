@@ -35,7 +35,7 @@ const SuggestionBox = ({ suggestions }: SuggestionBoxProps) => {
         onClick={toggleBox}
         colorScheme="teal"
         width="100px"
-        transform={isOpen ? "translateY(0)" : "translateY(38vh)"}
+        transform={isOpen ? "translateY(0)" : "translateY(35vh)"}
         transition="transform 0.3s ease-in-out"
         mb={2}
         borderRadius="full"
@@ -48,7 +48,7 @@ const SuggestionBox = ({ suggestions }: SuggestionBoxProps) => {
         borderRadius="md"
         boxShadow="md"
         h="100%"
-        transform={isOpen ? "translateY(0)" : "translateY(38vh)"}
+        transform={isOpen ? "translateY(0)" : "translateY(35vh)"}
         transition="transform 0.3s ease-in-out"
         overflow="hidden"
       >
