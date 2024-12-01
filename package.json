@@ -10,7 +10,11 @@
   },
   "dependencies": {
     "@react-google-maps/api": "^2.20.3",
-    "@types/leaflet": "^1.9.14",
+    "@types/leaflet": "^1.9.14",    
+    "@chakra-ui/react": "2.10.4",
+    "@emotion/react": "11",
+    "@emotion/styled": "11",
+    "framer-motion": "6",
     "leaflet": "^1.9.4",
     "next": "15.0.3",
     "react": "^18.3.1",
