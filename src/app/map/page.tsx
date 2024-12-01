@@ -1,10 +1,18 @@
 "use client";
-import LocationMap from "@/components/map/map";
+import { LocationMap, LatLng } from "@/components/map/map";
 
 function MapPage() {
+ const positionList: LatLng[] = [
+  // 金沢駅
+  { lat: 36.578081827075, lng: 136.6478205667 },
+  // 兼六園
+  { lat: 36.561325, lng: 136.656205 },
+  // 21世紀美術館
+  { lat: 36.561204, lng: 136.656763 },
+ ];
  return (
   <div>
-   <LocationMap lat={35.681236} lng={139.767125} />
+   <LocationMap positionList={positionList} />
   </div>
  );
 }

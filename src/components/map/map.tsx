@@ -2,13 +2,18 @@ import { Libraries } from "@googlemaps/js-api-loader";
 import { GoogleMap, MarkerF, useJsApiLoader } from "@react-google-maps/api";
 import { CSSProperties, useState, useEffect } from "react";
 
-interface Props {
+// 緯度、経度を表すinterface
+interface LatLng {
  lat: number;
  lng: number;
+}
+
+interface Props {
+ positionList: LatLng[];
  mapContainerStyle?: CSSProperties;
 }
 
-const LocationMap = ({ lat, lng, mapContainerStyle }: Props) => {
+const LocationMap = ({ positionList, mapContainerStyle }: Props) => {
  const [libraries] = useState<Libraries>(["geometry", "drawing"]);
  const { isLoaded } = useJsApiLoader({
   id: "google-map-script",
@@ -38,7 +43,8 @@ const LocationMap = ({ lat, lng, mapContainerStyle }: Props) => {
   }
  }, []);
 
- // スマホで全画面表示するためのスタイルを設定
+ const kanazawaStation: LatLng = { lat: 36.578081827075, lng: 136.6478205667 };
+
  const fullScreenStyle: CSSProperties = {
   height: "100vh",
   width: "100vw",
@@ -46,9 +52,12 @@ const LocationMap = ({ lat, lng, mapContainerStyle }: Props) => {
 
  if (isLoaded) {
   return (
-   <GoogleMap mapContainerStyle={mapContainerStyle || fullScreenStyle} center={currentPosition || { lat, lng }} zoom={16} options={{ fullscreenControl: false, mapTypeControl: false, streetViewControl: false }}>
-    <MarkerF position={{ lat, lng }} />
+   <GoogleMap mapContainerStyle={mapContainerStyle || fullScreenStyle} center={currentPosition || kanazawaStation} zoom={16} options={{ fullscreenControl: false, mapTypeControl: false, streetViewControl: false }}>
     {currentPosition && <MarkerF position={currentPosition} icon={{ path: window.google.maps.SymbolPath.CIRCLE, scale: 8, fillColor: "blue", fillOpacity: 0.6, strokeWeight: 2, strokeColor: "white" }} />}
+
+    {positionList.map((latLng, index) => (
+     <MarkerF key={index} position={latLng} />
+    ))}
    </GoogleMap>
   );
  } else {
@@ -56,4 +65,5 @@ const LocationMap = ({ lat, lng, mapContainerStyle }: Props) => {
  }
 };
 
-export default LocationMap;
+export { LocationMap };
+export type { LatLng };
