@@ -1,555 +1,557 @@
+import { Badge } from "@chakra-ui/react";
+
 const suggestions = [
     // 1
     {
       image: "map-placeholder.png",
       title: "総湯 湯めどころ宇奈月",
-      badge: "番号: 1",
+      badge: "地元のおすすめ",
       description: "ポケモンGoでも有名です。",
     },
     // 2
     {
       image: "map-placeholder.png",
       title: "黒部市地域観光ギャラリー（黒部宇奈月温泉駅）",
-      badge: "番号: 2",
+      badge: "地元のおすすめ",
       description: "ポケモンGoでも有名です。",
     },
     // 3
     {
       image: "map-placeholder.png",
       title: "道の駅KOKOくろべ",
-      badge: "番号: 3",
+      badge: "地元のおすすめ",
       description: "ポケモンGoでも有名です。",
     },
     // 4
     {
       image: "map-placeholder.png",
       title: "魚津水族館",
-      badge: "番号: 4",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 5
     {
       image: "map-placeholder.png",
       title: "立山駅",
-      badge: "番号: 5",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 6
     {
       image: "map-placeholder.png",
       title: "富山市岩瀬エリア（北陸銀行岩瀬支店）",
-      badge: "番号: 6",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 7
     {
       image: "map-placeholder.png",
       title: "ますのすし本舗 源（富山駅）",
-      badge: "番号: 7",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 8
     {
       image: "map-placeholder.png",
       title: "富山市まちなか観光案内所",
-      badge: "番号: 8",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 9
     {
       image: "map-placeholder.png",
       title: "日産レンタカー富山駅前店",
-      badge: "番号: 9",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 10
     {
       image: "map-placeholder.png",
       title: "富山空港　国内線付近",
-      badge: "番号: 10",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 11
     {
       image: "map-placeholder.png",
       title: "富山空港　国際線付近",
-      badge: "番号: 11",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 12
     {
       image: "map-placeholder.png",
       title: "海王丸パーク",
-      badge: "番号: 12",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 13
     {
       image: "map-placeholder.png",
       title: "新湊きっときと市場",
-      badge: "番号: 13",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 14
     {
       image: "map-placeholder.png",
       title: "道の駅カモンパーク新湊",
-      badge: "番号: 14",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 15
     {
       image: "map-placeholder.png",
       title: "道の駅雨晴",
-      badge: "番号: 15",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 16
     {
       image: "map-placeholder.png",
       title: "ますのすし本舗 源（新高岡駅）",
-      badge: "番号: 16",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 17
     {
       image: "map-placeholder.png",
       title: "道の駅 氷見 氷見漁港場外市場 ひみ番屋街",
-      badge: "番号: 17",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 18
     {
       image: "map-placeholder.png",
       title: "道の駅メルヘンおやべ",
-      badge: "番号: 18",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 19
     {
       image: "map-placeholder.png",
       title: "小矢部川SA（下り）",
-      badge: "番号: 19",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 20
     {
       image: "map-placeholder.png",
       title: "小矢部川SA（上り）",
-      badge: "番号: 20",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 21
     {
       image: "map-placeholder.png",
       title: "道の駅庄川",
-      badge: "番号: 21",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 22
     {
       image: "map-placeholder.png",
       title: "チューリップ四季彩館",
-      badge: "番号: 22",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 23
     {
       image: "map-placeholder.png",
       title: "五箇山・相倉合掌集落",
-      badge: "番号: 23",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 24
     {
       image: "map-placeholder.png",
       title: "イカの駅 つくモール",
-      badge: "番号: 24",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 25
     {
       image: "map-placeholder.png",
       title: "のと里山空港",
-      badge: "番号: 25",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 26
     {
       image: "map-placeholder.png",
       title: "近江町市場",
-      badge: "番号: 26",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 27
     {
       image: "map-placeholder.png",
       title: "ひがし茶屋街・玉匣",
-      badge: "番号: 27",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 28
     {
       image: "map-placeholder.png",
       title: "ひがし茶屋街・金箔屋さくだ 本店　",
-      badge: "番号: 28",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 29
     {
       image: "map-placeholder.png",
       title: "石川県立伝統産業工芸館",
-      badge: "番号: 29",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 30
     {
       image: "map-placeholder.png",
       title: "兼六園　桂坂料金所",
-      badge: "番号: 30",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 31
     {
       image: "map-placeholder.png",
       title: "金沢城公園　総合案内所",
-      badge: "番号: 31",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 32
     {
       image: "map-placeholder.png",
       title: "兼六園　真弓坂料金所",
-      badge: "番号: 32",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 33
     {
       image: "map-placeholder.png",
       title: "金沢城公園　五十間長屋",
-      badge: "番号: 33",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 34
     {
       image: "map-placeholder.png",
       title: "金沢21世紀美術館",
-      badge: "番号: 34",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 35
     {
       image: "map-placeholder.png",
       title: "紙文房あらき",
-      badge: "番号: 35",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 36
     {
       image: "map-placeholder.png",
       title: "尾山神社",
-      badge: "番号: 36",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 37
     {
       image: "map-placeholder.png",
       title: "金沢中央観光案内所 ",
-      badge: "番号: 37",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 38
     {
       image: "map-placeholder.png",
       title: "武家屋敷跡 野村家",
-      badge: "番号: 38",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 39
     {
       image: "map-placeholder.png",
       title: "金沢駅観光案内所（金沢駅）",
-      badge: "番号: 39",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 40
     {
       image: "map-placeholder.png",
       title: "スカイ獅子吼",
-      badge: "番号: 40",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 41
     {
       image: "map-placeholder.png",
       title: "日産レンタカー金沢駅前店",
-      badge: "番号: 41",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 42
     {
       image: "map-placeholder.png",
       title: "北陸鉄道チケットセンター",
-      badge: "番号: 42",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 43
     {
       image: "map-placeholder.png",
       title: "金沢港クルーズターミナル",
-      badge: "番号: 43",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 44
     {
       image: "map-placeholder.png",
       title: "Komatsu 九（小松駅）",
-      badge: "番号: 44",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 45
     {
       image: "map-placeholder.png",
       title: "小松空港　レンタカーカウンター",
-      badge: "番号: 45",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 46
     {
       image: "map-placeholder.png",
       title: "小松空港　国内線付近",
-      badge: "番号: 46",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 47
     {
       image: "map-placeholder.png",
       title: "小松空港　国際線付近",
-      badge: "番号: 47",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 48
     {
       image: "map-placeholder.png",
       title: "山中温泉総湯 菊の湯",
-      badge: "番号: 48",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 49
     {
       image: "map-placeholder.png",
       title: "山中座",
-      badge: "番号: 49",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 50
     {
       image: "map-placeholder.png",
       title: "加賀片山津温泉 総湯",
-      badge: "番号: 50",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 51
     {
       image: "map-placeholder.png",
       title: "山代温泉 総湯",
-      badge: "番号: 51",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 52
     {
       image: "map-placeholder.png",
       title: "加賀市観光情報センター （加賀温泉駅）",
-      badge: "番号: 52",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 53
     {
       image: "map-placeholder.png",
       title: "尼御前SA（下り）",
-      badge: "番号: 53",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 54
     {
       image: "map-placeholder.png",
       title: "尼御前SA（上り）",
-      badge: "番号: 54",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 55
     {
       image: "map-placeholder.png",
       title: "道の駅 越前おおの荒島の郷",
-      badge: "番号: 55",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 56
     {
       image: "map-placeholder.png",
       title: "越前大仏",
-      badge: "番号: 56",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 57
     {
       image: "map-placeholder.png",
       title: "福井県立恐竜博物館",
-      badge: "番号: 57",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 58
     {
       image: "map-placeholder.png",
       title: "越前おおの結楽座",
-      badge: "番号: 58",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 59
     {
       image: "map-placeholder.png",
       title: "大本山永平寺",
-      badge: "番号: 59",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 60
     {
       image: "map-placeholder.png",
       title: "丸岡城",
-      badge: "番号: 60",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 61
     {
       image: "map-placeholder.png",
       title: "芦原温泉駅観光案内所（芦原温泉駅）",
-      badge: "番号: 61",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 62
     {
       image: "map-placeholder.png",
       title: "あわら湯のまち駅 あわら温泉情報処「おしえる座ぁ」",
-      badge: "番号: 62",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 63
     {
       image: "map-placeholder.png",
       title: "東尋坊正太楼",
-      badge: "番号: 63",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 64
     {
       image: "map-placeholder.png",
       title: "特別史跡 一乗谷朝倉氏遺跡",
-      badge: "番号: 64",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 65
     {
       image: "map-placeholder.png",
       title: "えちぜん鉄道 福井駅",
-      badge: "番号: 65",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 66
     {
       image: "map-placeholder.png",
       title: "ふくい観光案内所（福井駅） ",
-      badge: "番号: 66",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 67
     {
       image: "map-placeholder.png",
       title: "日産レンタカー福井駅前店",
-      badge: "番号: 67",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 68
     {
       image: "map-placeholder.png",
       title: "南条SA(下り)",
-      badge: "番号: 68",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 69
     {
       image: "map-placeholder.png",
       title: "南条SA（上り）",
-      badge: "番号: 69",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 70
     {
       image: "map-placeholder.png",
       title: "道の駅 南えちぜん山海里",
-      badge: "番号: 70",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 71
     {
       image: "map-placeholder.png",
       title: "道の駅越前たけふ(越前たけふ駅）",
-      badge: "番号: 71",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 72
     {
       image: "map-placeholder.png",
       title: "道の駅 越前",
-      badge: "番号: 72",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 73
     {
       image: "map-placeholder.png",
       title: "敦賀駅ハピラインお客様カウンター",
-      badge: "番号: 73",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 74
     {
       image: "map-placeholder.png",
       title: "敦賀赤レンガ倉庫",
-      badge: "番号: 74",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 75
     {
       image: "map-placeholder.png",
       title: "日本海さかな街",
-      badge: "番号: 75",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 76
     {
       image: "map-placeholder.png",
       title: "道の駅 若狭美浜はまびより",
-      badge: "番号: 76",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 77
     {
       image: "map-placeholder.png",
       title: "道の駅 三方五湖",
-      badge: "番号: 77",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 78
     {
       image: "map-placeholder.png",
       title: "若狭おばま観光案内所",
-      badge: "番号: 78",
+      
       description: "ポケモンGoでも有名です。",
     },
     // 79
     {
       image: "map-placeholder.png",
       title: "若狭フィッシャーマンズワーフ",
-      badge: "番号: 79",
+      
       description: "ポケモンGoでも有名です。",
     },
   ];

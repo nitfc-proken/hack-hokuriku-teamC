@@ -13,7 +13,7 @@ import { useState } from "react";
 interface Suggestion {
   image: string;
   title: string;
-  badge: string;
+  badge?: string;
   description: string;
 }
 
