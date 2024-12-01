@@ -1,11 +1,17 @@
-import Image from "next/image";
-import React from "react";
-import { Box ,Text,ChakraProvider} from "@chakra-ui/react";
+"use client";
+import SuggestionBox from '../components/SuggestionBox';
 
-export default function Home() {
+export default function HomePage() {
+  const suggestions = [
+    "サジェスト1: あなたにおすすめのコンテンツ",
+    "サジェスト2: 人気の機能を確認",
+    "サジェスト3: 次のステップを選択",
+  ];
+
   return (
-    <Box >
-      <Text >HOGE</Text>
-    </Box>
+    <div>
+      <h1>サジェストコンポーネントの例</h1>
+      <SuggestionBox suggestions={suggestions} />
+    </div>
   );
 }
