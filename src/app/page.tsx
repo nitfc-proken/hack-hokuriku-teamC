@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Box, Text, Input, Button } from "@chakra-ui/react";
+import { Box, Text, Input, Button, VStack } from "@chakra-ui/react";
 import SuggestionBox from "../components/SuggestionBox";
 import { LocationMap, LatLng, UseCurrentPosition } from "../components/map/map";
 import { suggestions, positionList } from "../data/data";
@@ -88,7 +88,7 @@ export default function HomePage() {
           観光おすすめマップ
         </Text>
         {/* 距離を指定する入力フィールドとボタン */}
-        <Box mt={4}>
+        <VStack mt={4}>
           <Input
             value={inputDistance}
             onChange={handleDistanceChange}
@@ -101,7 +101,7 @@ export default function HomePage() {
           <Button onClick={handleSubmitDistance} colorScheme="teal" size="sm">
             距離を設定
           </Button>
-        </Box>
+        </VStack>
       </Box>
 
       <LocationMap
