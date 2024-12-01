@@ -12,12 +12,14 @@ const suggestions = [
     {
       image: "map-placeholder.png",
       title: "黒部市地域観光ギャラリー（黒部宇奈月温泉駅）",
+      badge:"人気No.1",
       description: "ポケモンGoでも有名です。",
     },
     // 3
     {
       image: "map-placeholder.png",
       title: "道の駅KOKOくろべ",
+      badge:"人気No.2",
       description: "ポケモンGoでも有名です。",
     },
     // 4
