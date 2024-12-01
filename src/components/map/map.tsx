@@ -72,30 +72,31 @@ const LocationMap = ({ positionList, centerPosition, mapContainerStyle }: Props)
  const center = centerPosition || currentPosition || kanazawaStation;
 
  // 現在の位置とマーカー位置を結ぶpolylinePositionsを作成
- const polylinePositions = currentPosition ? [currentPosition, ...positionList] : positionList;
+ if (!currentPosition) {
+  return <></>;
+ }
+ const polylinePositions = positionList;
 
  // 各線分の距離を表示するためのマーカーを追加
  const distanceMarkers = polylinePositions.map((_, index) => {
-  if (index < polylinePositions.length - 1) {
-   const midPoint: LatLng = {
-    lat: (polylinePositions[index].lat + polylinePositions[index + 1].lat) / 2,
-    lng: (polylinePositions[index].lng + polylinePositions[index + 1].lng) / 2,
-   };
-   const distance = calculateDistance(polylinePositions[index], polylinePositions[index + 1]);
-   return (
-    <MarkerF
-     key={`distance-${index}`}
-     position={midPoint}
-     icon={{ path: "M0,-5 L-5,5 L5,5 Z", scale: 1, strokeColor: "transparent", strokeWeight: 0, fillColor: "transparent", fillOpacity: 0 }}
-     label={{
-      text: `${(distance / 1000).toFixed(2)} km`,
-      color: "black",
-      fontSize: "16px",
-      fontWeight: "bold",
-     }}
-    />
-   );
-  }
+  const midPoint: LatLng = {
+   lat: (polylinePositions[index].lat + currentPosition.lat) / 2,
+   lng: (polylinePositions[index].lng + currentPosition.lng) / 2,
+  };
+  const distance = calculateDistance(polylinePositions[index], currentPosition);
+  return (
+   <MarkerF
+    key={`distance-${index}`}
+    position={midPoint}
+    icon={{ path: "M0,-5 L-5,5 L5,5 Z", scale: 1, strokeColor: "transparent", strokeWeight: 0, fillColor: "transparent", fillOpacity: 0 }}
+    label={{
+     text: `${(distance / 1000).toFixed(2)} km`,
+     color: "black",
+     fontSize: "16px",
+     fontWeight: "bold",
+    }}
+   />
+  );
   return null; // 最後の点にはマーカーを表示しない
  });
 
@@ -103,22 +104,11 @@ const LocationMap = ({ positionList, centerPosition, mapContainerStyle }: Props)
   return (
    <GoogleMap mapContainerStyle={mapContainerStyle || fullScreenStyle} center={center} zoom={16} options={{ fullscreenControl: false, mapTypeControl: false, zoomControl: false, streetViewControl: false }}>
     {currentPosition && <MarkerF position={currentPosition} icon={{ path: window.google.maps.SymbolPath.CIRCLE, scale: 8, fillColor: "blue", fillOpacity: 0.6, strokeWeight: 2, strokeColor: "white" }} />}
-
     {positionList.map((latLng, index) => (
      <MarkerF key={index} position={latLng} />
     ))}
 
-    {polylinePositions.length > 1 && (
-     <Polyline
-      path={polylinePositions}
-      options={{
-       strokeColor: "#FF0000",
-       strokeOpacity: 1,
-       strokeWeight: 2,
-      }}
-     />
-    )}
-
+    {currentPosition && positionList.length > 0 && positionList.map((latLng, index) => <Polyline key={index} path={[currentPosition, latLng]} options={{ strokeColor: "red", strokeOpacity: 1, strokeWeight: 3 }} />)}
     {/* 距離を表示 */}
     {distanceMarkers}
    </GoogleMap>
