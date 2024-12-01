@@ -40,6 +40,18 @@ export default function HomePage() {
   }
  }
 
+ let nearSuggestions = suggestions;
+ let nearPositionList = positionList;
+ const threshold = 1000; // 1km以内の施設を表示
+ if (currentPosition) {
+  nearSuggestions = suggestions.filter((_, i) => {
+   return calculateDistance(currentPosition, positionList[i]) < threshold;
+  });
+  nearPositionList = positionList.filter((_, i) => {
+   return calculateDistance(currentPosition, positionList[i]) < threshold;
+  });
+ }
+
  return (
   <Box position="relative" height="100vh">
    <Box
@@ -61,9 +73,9 @@ export default function HomePage() {
     </Text>
    </Box>
 
-   <LocationMap positionList={positionList} centerPosition={positionList[selectedIndex ?? 0]} />
+   <LocationMap positionList={nearPositionList} centerPosition={nearPositionList[selectedIndex ?? 0]} />
 
-   <SuggestionBox suggestions={suggestions} onClick={handleSuggestionClick} />
+   <SuggestionBox suggestions={nearSuggestions} onClick={handleSuggestionClick} />
   </Box>
  );
 }
