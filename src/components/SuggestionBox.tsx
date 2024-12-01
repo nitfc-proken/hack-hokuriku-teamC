@@ -19,9 +19,10 @@ interface Suggestion {
 
 interface SuggestionBoxProps {
   suggestions: Suggestion[]; // サジェスト内容をオブジェクト配列で受け取る
+  onClick: (index: number) => void; // クリック時のコールバック関数
 }
 
-const SuggestionBox = ({ suggestions }: SuggestionBoxProps) => {
+const SuggestionBox = ({ suggestions, onClick }: SuggestionBoxProps) => {
   const [isOpen, setIsOpen] = useState(false); // サジェストの開閉状態を管理
 
   const toggleBox = () => {
@@ -87,6 +88,9 @@ const SuggestionBox = ({ suggestions }: SuggestionBoxProps) => {
                 boxShadow="md"
                 w="100%"
                 mb={4}
+                onClick={() => {
+                  onClick(index);
+                }}
               >
                 <Stack direction="row" spacing={4}>
                   {/* 画像 */}

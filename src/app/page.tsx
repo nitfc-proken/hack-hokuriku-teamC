@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import { Box } from "@chakra-ui/react";
 import SuggestionBox from "../components/SuggestionBox";
 import { LocationMap, LatLng } from "../components/map/map";
@@ -762,13 +763,23 @@ export default function HomePage() {
     { lat: 35.5002388, lng: 135.7402092 },
   ];
 
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
+  const handleSuggestionClick = (index: number) => {
+    setSelectedIndex(index);
+    console.log(`Selected index: ${index}`);
+  };
+
   return (
     <Box>
       <LocationMap
         positionList={positionList}
-        centerPosition={positionList[0]}
+        centerPosition={positionList[selectedIndex ?? 0]}
       />
-      <SuggestionBox suggestions={suggestions2} />
+      <SuggestionBox
+        suggestions={suggestions2}
+        onClick={handleSuggestionClick}
+      />
     </Box>
   );
 }
