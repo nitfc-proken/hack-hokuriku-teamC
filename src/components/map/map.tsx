@@ -118,5 +118,5 @@ const LocationMap = ({ positionList, centerPosition, mapContainerStyle }: Props)
  }
 };
 
-export { LocationMap };
+export { LocationMap, UseCurrentPosition };
 export type { LatLng };
