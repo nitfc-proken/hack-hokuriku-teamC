@@ -1,6 +1,7 @@
 "use client";
-import SuggestionBox from "../components/SuggestionBox";
 import { Box } from "@chakra-ui/react";
+import SuggestionBox from "../components/SuggestionBox";
+import LocationMap from "../components/map/map";
 
 export default function HomePage() {
   const suggestions = [
@@ -44,6 +45,7 @@ export default function HomePage() {
 
   return (
     <Box>
+      <LocationMap lat={35.681236} lng={139.767125} />
       <SuggestionBox suggestions={suggestions} />
     </Box>
   );
