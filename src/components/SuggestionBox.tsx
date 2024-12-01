@@ -113,6 +113,10 @@ const SuggestionBox = ({ suggestions }: SuggestionBoxProps) => {
                 </Stack>
               </Box>
             ))}
+            <Text fontSize="sm" color="gray.500" textAlign="center">
+              画像参照元: 福井市 写真ギャラリー
+              https://www.city.fukui.lg.jp/photo/index.html
+            </Text>
           </VStack>
         </Box>
       </Box>
