@@ -55,7 +55,7 @@ const LocationMap = ({ positionList, centerPosition, mapContainerStyle }: Props)
 
  if (isLoaded) {
   return (
-   <GoogleMap mapContainerStyle={mapContainerStyle || fullScreenStyle} center={center} zoom={16} options={{ fullscreenControl: false, mapTypeControl: false, streetViewControl: false }}>
+   <GoogleMap mapContainerStyle={mapContainerStyle || fullScreenStyle} center={center} zoom={16} options={{ fullscreenControl: false, mapTypeControl: false, zoomControl: false, streetViewControl: false }}>
     {currentPosition && <MarkerF position={currentPosition} icon={{ path: window.google.maps.SymbolPath.CIRCLE, scale: 8, fillColor: "blue", fillOpacity: 0.6, strokeWeight: 2, strokeColor: "white" }} />}
 
     {positionList.map((latLng, index) => (
