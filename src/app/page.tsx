@@ -85,7 +85,7 @@ export default function HomePage() {
         textAlign="center"
       >
         <Text fontSize="2xl" fontWeight="bold">
-          観光おすすめマップ
+          MACトラベル
         </Text>
         {/* 距離を指定する入力フィールドとボタン */}
         <VStack mt={4}>
