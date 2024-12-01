@@ -10,10 +10,11 @@ interface LatLng {
 
 interface Props {
  positionList: LatLng[];
+ centerPosition?: LatLng;
  mapContainerStyle?: CSSProperties;
 }
 
-const LocationMap = ({ positionList, mapContainerStyle }: Props) => {
+const LocationMap = ({ positionList, centerPosition, mapContainerStyle }: Props) => {
  const [libraries] = useState<Libraries>(["geometry", "drawing"]);
  const { isLoaded } = useJsApiLoader({
   id: "google-map-script",
@@ -50,9 +51,11 @@ const LocationMap = ({ positionList, mapContainerStyle }: Props) => {
   width: "100vw",
  };
 
+ const center = centerPosition || currentPosition || kanazawaStation;
+
  if (isLoaded) {
   return (
-   <GoogleMap mapContainerStyle={mapContainerStyle || fullScreenStyle} center={currentPosition || kanazawaStation} zoom={16} options={{ fullscreenControl: false, mapTypeControl: false, streetViewControl: false }}>
+   <GoogleMap mapContainerStyle={mapContainerStyle || fullScreenStyle} center={center} zoom={16} options={{ fullscreenControl: false, mapTypeControl: false, streetViewControl: false }}>
     {currentPosition && <MarkerF position={currentPosition} icon={{ path: window.google.maps.SymbolPath.CIRCLE, scale: 8, fillColor: "blue", fillOpacity: 0.6, strokeWeight: 2, strokeColor: "white" }} />}
 
     {positionList.map((latLng, index) => (

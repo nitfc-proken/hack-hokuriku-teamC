@@ -12,7 +12,7 @@ function MapPage() {
  ];
  return (
   <div>
-   <LocationMap positionList={positionList} />
+   <LocationMap positionList={positionList} centerPosition={positionList[0]} />
   </div>
  );
 }
